@@ -1,1 +1,2 @@
-Add all Image files here..
+### Images folder
+Holds all images for the applications.

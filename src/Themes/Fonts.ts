@@ -1,5 +1,3 @@
-const Fonts = {
+export const Fonts = {
 
 }
-
-export default Fonts;

@@ -1,17 +1,22 @@
 # react-directory-structure
-React Native App directory structure with some basic boilerplate including some reusable components and context setup
+An opinionated React Native / React boilerplate for starting new Project.
+
+- React Native App directory structure with some basic boilerplate including some reusable components and context setup.
+- I use this to start new React Native project and similar structure can also be followed in React Web Projects.
+- Browse through the src/ folder 
 
 ## Features
 - Context API
-- Components
+- Components / Screens
 - Hooks
-- API Setup
+- API Services Setup
+- Config
+- Library Helpful functions
+- Navigation
+- Assets and Themes
+- Typescript
 
-Basic boilerplate for starting a new React Native project
-
-Inspired by Ignite typescript boilerplate. https://github.com/aerian-studios/ignite-typescript-boilerplate
-
-### Recommended Libs:
+### Recommended and Required Dependencies:
 
 ```
 "dependencies": {
@@ -42,3 +47,7 @@ Inspired by Ignite typescript boilerplate. https://github.com/aerian-studios/ign
     "typescript": "^3.7.2"
   }
 ```
+
+
+
+Inspired by Ignite typescript boilerplate. https://github.com/aerian-studios/ignite-typescript-boilerplate

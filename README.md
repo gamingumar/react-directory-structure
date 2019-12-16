@@ -26,6 +26,8 @@ import App from './src/Screens/App';
 - Native Libs setup
 Follow instructions in https://github.com.cnpmjs.org/zoontek/react-native-bootsplash
 
+- Add logo.png in assets/images/ or remove from SignInScreen
+
 
 ### Recommended and Required Dependencies:
 

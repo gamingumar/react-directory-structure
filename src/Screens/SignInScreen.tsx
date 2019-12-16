@@ -1,6 +1,6 @@
 
 import React, {useState, useContext, useEffect} from 'react';
-import {View, StatusBar, Alert, TextInput} from 'react-native';
+import {View, StatusBar, Alert, TextInput, TouchableOpacity} from 'react-native';
 import {Text} from '../Components/Text';
 import {Image} from '../Components/Image';
 import {Images} from '../Themes/Images';
@@ -8,8 +8,6 @@ import {Colors} from '../Themes/Colors';
 import {scale, ScaledSheet, verticalScale} from 'react-native-size-matters';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useNavigation} from 'react-navigation-hooks';
-import {RouteKeys} from '../Navigation/RouteKeys';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {log,} from '../Lib';
 import {Loader} from '../Components/Loader';
 import {DropDownAlertHolder} from '../Components/DropDownAlertHolder';
@@ -30,7 +28,7 @@ export const SignInScreen: React.FC = () => {
 
   useEffect(() => {
     if (user && user.api_token) {
-      navigate(RouteKeys.Home);
+      // navigate(RouteKeys.Home);
     }
   }, [user]);
 
@@ -62,8 +60,6 @@ export const SignInScreen: React.FC = () => {
         err2 = e.message;
       }
 
-      setLoading(false);
-
       log('LOGIN ERROR: ', err, err2);
 
       d.alertWithType('error', 'Error', err);
@@ -72,11 +68,13 @@ export const SignInScreen: React.FC = () => {
 
       updateUser(response.data)
     }
+
+    setLoading(false);
   };
 
   return (
     <View style={[styles.outerContainer]}>
-      <StatusBar backgroundColor={Colors.grayBG} barStyle="light-content" />
+      <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
       <KeyboardAwareScrollView>
         <View style={styles.container}>
           <View style={{alignItems: 'center', padding: verticalScale(15)}}>
@@ -150,7 +148,7 @@ export const SignInScreen: React.FC = () => {
 const styles = ScaledSheet.create({
   outerContainer: {
     flex: 1,
-    backgroundColor: Colors.grayBG,
+    backgroundColor: Colors.white,
   },
   container: {
     flex: 1,
@@ -170,7 +168,7 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: Colors.white,
+    color: Colors.grayBG,
     fontSize: '14@ms',
   },
 });

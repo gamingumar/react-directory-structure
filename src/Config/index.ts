@@ -33,6 +33,6 @@ export let Config = {
   FIRST_SCREEN: RouteKeys.Home, //.Home //TODO: ONLY FOR DEBUG Home
   FIRST_SCREEN_AUTH_FAIL: RouteKeys.SignIn, //.SignIn
 
-  DEMO_EMAIL: IS_PRODUCTION ? "" : "umar@gamingumar.com",
+  DEMO_EMAIL: IS_PRODUCTION ? "" : "umaraamer@gmail.com",
   DEMO_PASSWORD: IS_PRODUCTION ? "" : "1234"
 }

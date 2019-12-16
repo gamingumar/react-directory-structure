@@ -51,3 +51,5 @@ An opinionated React Native / React boilerplate for starting new Project.
 
 
 Inspired by Ignite typescript boilerplate. https://github.com/aerian-studios/ignite-typescript-boilerplate
+
+- https://gamingumar.com

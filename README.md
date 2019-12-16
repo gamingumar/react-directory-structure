@@ -15,6 +15,8 @@ An opinionated React Native / React boilerplate for starting new Project.
 - Navigation
 - Assets and Themes
 - Typescript
+- Reactotron
+- AsyncStorage
 
 ### Installation
 - Update index.js with 

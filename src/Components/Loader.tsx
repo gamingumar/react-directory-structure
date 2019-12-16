@@ -40,7 +40,7 @@ interface ILoaderProps {
 export const Loader = (props: ILoaderProps) => {
   const {size, inModal, visible, opacity, style, title} = props;
 
-  const loader = <ActivityIndicator color={Colors.green} size={size} />;
+  const loader = <ActivityIndicator color={Colors.grayBG} size={size} />;
   if (!inModal) {
     if (visible === true)
       return (

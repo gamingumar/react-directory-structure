@@ -15,7 +15,8 @@ import { useNavigation } from "react-navigation-hooks";
 import { log } from "../Lib";
 import { Colors } from "../Themes/Colors";
 import { Config } from "../Config";
-import { AppContext } from "../Context";
+import { AppContext } from "../Context/AppContext";
+import { Loader } from "../Components/Loader";
 
  export const SplashScreen: React.FC = () => {
   log('*** RENDER *** : SPLASH SCREEN');
@@ -75,7 +76,7 @@ import { AppContext } from "../Context";
 
   return (
     <View style={styles.container}>
-<Loader inModal={false} />
+      <Loader inModal={false} />
     </View>
   )
 }

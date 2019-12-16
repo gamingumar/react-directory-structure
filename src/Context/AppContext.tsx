@@ -53,7 +53,7 @@ export const AppProvider: React.FC = props => {
 
 
   /**
-   * Logout TNFR User and clear Storage
+   * Logout User and clear Storage
    */
   const logout = () => {
     log('LOGGING OUT IN CONTEXT');

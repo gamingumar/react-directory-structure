@@ -58,7 +58,7 @@ const App = () => {
         >
         <AppProvider>
           <AppNavigation />
-          <DropdownAlert updateStatusBar={is_android} ref={ref => DropDownHolder.setDropDown(ref)} />
+          <DropdownAlert updateStatusBar={is_android} ref={ref => DropDownAlertHolder.setDropDown(ref)} />
         </AppProvider>
       </SafeAreaView>
   );

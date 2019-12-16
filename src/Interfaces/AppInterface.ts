@@ -10,6 +10,8 @@
  */
 
 export interface IAppContext {
+  user: IUser | null;
+  updateUser: Function;
 }
 
 // ? Data cache in storage interface

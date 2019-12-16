@@ -16,6 +16,17 @@ An opinionated React Native / React boilerplate for starting new Project.
 - Assets and Themes
 - Typescript
 
+### Installation
+- Update index.js with 
+```
+import 'react-native-gesture-handler';
+import App from './src/Screens/App';
+```
+
+- Native Libs setup
+Follow instructions in https://github.com.cnpmjs.org/zoontek/react-native-bootsplash
+
+
 ### Recommended and Required Dependencies:
 
 ```
@@ -46,6 +57,14 @@ An opinionated React Native / React boilerplate for starting new Project.
     "reactotron-react-native": "^4.0.2",
     "typescript": "^3.7.2"
   }
+```
+
+```
+yarn add react-navigation-animated-switch react-native-reanimated react-native-bootsplash lodash @react-native-community/async-storage react-native-device-info react-native-dropdownalert react-native-gesture-handler react-native-keyboard-aware-scroll-view react-native-modal react-native-screens react-native-size-matters react-navigation react-navigation-hooks react-navigation-stack
+
+yarn add -D @types/lodash reactotron-react-native
+
+cd ios && pod install && cd ../
 ```
 
 

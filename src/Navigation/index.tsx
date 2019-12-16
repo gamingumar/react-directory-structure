@@ -1,7 +1,10 @@
 import React from 'react';
+import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import { Transition } from 'react-native-reanimated';
 import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
+import { SignInScreen } from '../Screens/SignInScreen';
+import { SplashScreen } from '../Screens/SplashScreen';
 import { RouteKeys } from './RouteKeys';
 
 

@@ -155,9 +155,15 @@ export function openPhone(phone: string) {
 
 /**
  * GU Lib - A dummy alert function
+ * 
+ * @param msg - Message
  */
-export function alertCheck() {
-  Alert.alert('alert check')
+export function alertCheck(msg?:string) {
+  if (!isString(msg) || !msg) {
+    msg = "Alert Check"
+  }
+
+  Alert.alert(msg)
 }
 
 

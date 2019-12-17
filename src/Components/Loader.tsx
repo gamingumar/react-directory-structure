@@ -23,6 +23,7 @@ interface ILoaderProps {
   title?: string;
   opacity?: number;
   style?: object;
+  loaderColor?: string;
 }
 
 /**
@@ -35,12 +36,13 @@ interface ILoaderProps {
  * @param {number} props.opacity
  * @param {Object} props.style
  * @param {string} props.title
+ * @param {string} props.loaderColor
  *
  */
 export const Loader = (props: ILoaderProps) => {
-  const {size, inModal, visible, opacity, style, title} = props;
+  const {size, inModal, visible, opacity, style, title, loaderColor} = props;
 
-  const loader = <ActivityIndicator color={Colors.grayBG} size={size} />;
+  const loader = <ActivityIndicator color={loaderColor || Colors.grayBG} size={size} />;
   if (!inModal) {
     if (visible === true)
       return (

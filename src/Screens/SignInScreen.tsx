@@ -92,6 +92,7 @@ export const SignInScreen: React.FC = () => {
               // title="Email"
               keyboardType="email-address"
               textContentType="username"
+              autoCapitalize="none"
               autoCompleteType="email"
               returnKeyType="next"
               onSubmitEditing={() => passwordInputRef.focus()}

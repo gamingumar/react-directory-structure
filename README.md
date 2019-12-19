@@ -62,7 +62,7 @@ Follow instructions in:
 Find all dependencies in package.json file.
 
 ```
-yarn add react-native-vector-icons react-navigation-animated-switch react-native-reanimated react-native-bootsplash lodash @react-native-community/async-storage react-native-device-info react-native-dropdownalert react-native-gesture-handler react-native-keyboard-aware-scroll-view react-native-modal react-native-screens react-native-size-matters react-navigation react-navigation-hooks react-navigation-stack
+yarn add react-navigation-tabs react-native-vector-icons react-navigation-animated-switch react-native-reanimated react-native-bootsplash lodash @react-native-community/async-storage react-native-device-info react-native-dropdownalert react-native-gesture-handler react-native-keyboard-aware-scroll-view react-native-modal react-native-screens react-native-size-matters react-navigation react-navigation-hooks react-navigation-stack
 
 yarn add -D @types/lodash reactotron-react-native
 

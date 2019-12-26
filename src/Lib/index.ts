@@ -133,7 +133,9 @@ export function openUrl(url = "", inApp = true) {
  * @param email - Email
  */
 export function openEmail(email: string) {
-  Linking.openURL(`mailto:${email}`)
+  try {
+    Linking.openURL(`mailto:${email}`)
+  } catch (e) { log('unable to open') }
 }
 
 /**
@@ -149,7 +151,9 @@ export function isValidEmail(email: string) {
  * @param phone - Phone Number
  */
 export function openPhone(phone: string) {
-  Linking.openURL(`tel:${phone}`)
+  try {
+    Linking.openURL(`tel:${phone}`)
+  } catch (e) { log('unable to open') }
 }
 
 
@@ -158,7 +162,7 @@ export function openPhone(phone: string) {
  * 
  * @param msg - Message
  */
-export function alertCheck(msg?:string) {
+export function alertCheck(msg?: string) {
   if (!isString(msg) || !msg) {
     msg = "Alert Check"
   }
@@ -257,13 +261,13 @@ export const isValidTimestamp = (timestamp: string | number) => (new Date(timest
  * @param amount - Amount to Parse
  * @param afterDecimalPlaced - Number of digits after decimal
  */
-export const parseAmount = (amount: string|number, afterDecimalPlaced = 2) => {
+export const parseAmount = (amount: string | number, afterDecimalPlaced = 2) => {
 
   // log('======> GOT TO PARSE: ', amount)
-  
+
   try {
-    let newAmount:number|string = Number(amount).toFixed(afterDecimalPlaced);
-    
+    let newAmount: number | string = Number(amount).toFixed(afterDecimalPlaced);
+
     return Number(newAmount);
 
   } catch (e) {

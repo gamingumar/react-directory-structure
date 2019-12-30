@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.7.1",
+    "apisauce": "^1.1.1",
+    "qs": "^6.9.1",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-bootsplash": "^1.1.0",
@@ -34,6 +36,7 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.149",
+    "@types/qs": "^6.9.0",
     "@types/react-native": "^0.60.22",
     "@types/react-test-renderer": "16.9.0",
     "babel-jest": "^24.9.0",

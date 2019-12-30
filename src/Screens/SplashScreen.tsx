@@ -12,11 +12,13 @@
 import React, { useEffect, useContext, useState } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "react-navigation-hooks";
-import { log } from "../Lib";
+import { log, storageGet } from "../Lib";
 import { Colors } from "../Themes/Colors";
 import { Config } from "../Config";
 import { AppContext } from "../Context/AppContext";
 import { Loader } from "../Components/Loader";
+import { IUser } from "../Interfaces/AppInterface";
+import { setGlobalUserToken } from "../Services/GlobalService";
 
  export const SplashScreen: React.FC = () => {
   log('*** RENDER *** : SPLASH SCREEN');
@@ -29,29 +31,13 @@ import { Loader } from "../Components/Loader";
 
   const {
     user,
+    updateUser
   } = useContext(AppContext);
 
   useEffect(() => {
     _getData();
 
   }, []);
-
-  /**
-   * Show loading while data is loading from App Storage
-   */
-  useEffect(() => {
-    if (!loading) {
-      _navigateForward();
-    }
-  }, [user, loading]);
-
-  /**
-   * Restore App Cart from AsyncStorage and set loading to false
-   */
-  const _getData = async () => {
-    setLoading(false);
-  }
-
 
   const _navigateForward = () => {
     let screen = Config.FIRST_SCREEN_AUTH_FAIL;
@@ -72,6 +58,34 @@ import { Loader } from "../Components/Loader";
       }
     };
   };
+
+  /**
+   * Show loading while data is loading from App Storage
+   */
+  useEffect(() => {
+    if (!loading) {
+      _navigateForward();
+    }
+  }, [user, loading]);
+
+  /**
+   * Restore App Data from AsyncStorage and set loading to false
+   */
+  const _getData = async () => {
+
+    const userData: IUser = await storageGet('user');
+
+    if (userData) {
+      updateUser(userData); // update data in context and storage
+    }
+
+    if (userData && userData.api_token) {
+      // this is to be used for all future api calls
+      setGlobalUserToken(userData.api_token);
+    }
+
+    setLoading(false);
+  }
 
 
   return (

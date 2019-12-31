@@ -1,3 +1,4 @@
+import DeviceInfo from 'react-native-device-info'
 import { create } from "apisauce";
 import { log } from "../Lib";
 import { Config } from "../Config";
@@ -48,22 +49,30 @@ export class ApiResponse implements IApiResponse {
  */
 const ApiClient = () => {
 
-  return create({
+  let api = create({
     baseURL: Config.API_URL,
     headers: {
       "Content-Type": "application/json",
-      // "user-key": `Bearer ${userToken}`
+      "Authorization": `bearer ${getGlobalUserToken()}`
     },
     timeout: 60000
   });
+
+  
+  api.addRequestTransform(request => {
+    request.data.client_id = `${DeviceInfo.getUniqueId()}`
+    // request.data = qs.stringify(request.data)
+
+    log('API CLIENT is: ', request)
+  })
+
+  return api;
 };
 /**
  * API POST
  */
 export const ApiPost = async (url = "", data = {}):Promise<IApiResponse> => {
   log("api post: ", url);
-
-  const api_token = getGlobalUserToken();
 
   const response = await ApiClient().post(url, {...data, api_token});
 
@@ -95,9 +104,7 @@ const _logoutOnError = (errorCode = 0) => {
 export const ApiGet = async (url = "", data = {}) => {
   log("api get: ", url);
 
-  const api_token = getGlobalUserToken();
-
-  const response = await ApiClient().get(url, {...data, api_token });
+  const response = await ApiClient().get(url, {...data });
 
   log("GET Response before parse: ", response);
 
@@ -128,9 +135,7 @@ export const ApiDelete = async (url = "", data = {}) => {
 export const ApiPatch = async (url = "", data = {}) => {
   log("api patch: ", url, data);
 
-  const api_token = getGlobalUserToken();
-
-  const response = await ApiClient().patch(url, { ...data, api_token });
+  const response = await ApiClient().patch(url, { ...data });
 
   log("PATCH Response before parse: ", response);
 

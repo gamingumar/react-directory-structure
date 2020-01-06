@@ -4,9 +4,9 @@
  * File Created: Tuesday, 16th July 2019 11:52:57 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Tuesday, 3rd December 2019 1:17:54 am
+ * Last Modified: Monday, 6th January 2020 11:04:56 pm
  * -----
- * Copyright 2019 - 2019 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
 import React, {createContext, useState, useEffect} from 'react';
 import {

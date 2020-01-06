@@ -4,9 +4,9 @@
  * File Created: Monday, 16th December 2019 11:11:16 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 16th December 2019 11:11:16 pm
+ * Last Modified: Monday, 6th January 2020 11:04:56 pm
  * -----
- * Copyright 2019 - 2019 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
 import DropdownAlert from 'react-native-dropdownalert';
 

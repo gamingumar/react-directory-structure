@@ -4,9 +4,9 @@
  * File Created: Saturday, 14th December 2019 2:24:19 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Saturday, 14th December 2019 2:24:19 am
+ * Last Modified: Monday, 6th January 2020 11:04:56 pm
  * -----
- * Copyright 2019 - 2019 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
 import React from "react";
 import { Image as RnImage, ImageSourcePropType, ImageProps } from "react-native";

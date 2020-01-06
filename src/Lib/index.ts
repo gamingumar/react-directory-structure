@@ -16,7 +16,7 @@ import { Dimensions, Platform, Linking, Alert } from "react-native";
 import AsyncStorage from "@react-native-community/async-storage";
 import reactotron from "reactotron-react-native";
 import DeviceInfo from 'react-native-device-info';
-import { TStorageKeys } from "../Interfaces";
+import { TStorageKeys } from "../Interfaces/AppInterface";
 
 /**
  * GU-Lib - Compare 2 Arrays

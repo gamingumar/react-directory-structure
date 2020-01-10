@@ -2,7 +2,7 @@
  * File: index.ts (Config)
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Tuesday, 10th December 2019 1:18:04 am
+ * Last Modified: Friday, 10th January 2020 6:35:49 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -34,5 +34,7 @@ export let Config = {
   FIRST_SCREEN_AUTH_FAIL: RouteKeys.SignIn, //.SignIn
 
   DEMO_EMAIL: IS_PRODUCTION ? "" : "umaraamer@gmail.com",
-  DEMO_PASSWORD: IS_PRODUCTION ? "" : "1234"
+  DEMO_PASSWORD: IS_PRODUCTION ? "" : "1234",
+
+  IS_PRODUCTION,
 }

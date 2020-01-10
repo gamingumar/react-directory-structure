@@ -2,7 +2,7 @@ import DeviceInfo from 'react-native-device-info'
 import { create } from "apisauce";
 import { log } from "../Lib";
 import { Config } from "../Config";
-import { logoutGlobal, getGlobalUserToken } from "./GlobalService";
+import { logoutGlobal } from "./GlobalService";
 
 
 export interface IApiData {
@@ -53,7 +53,7 @@ const ApiClient = () => {
     baseURL: Config.API_URL,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${getGlobalUserToken()}`
+      // "Authorization": `bearer ${getGlobalUser().token}`
     },
     timeout: 60000
   });

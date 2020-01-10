@@ -14,6 +14,8 @@ import {DropDownAlertHolder} from '../Components/DropDownAlertHolder';
 import {AppContext} from '../Context/AppContext';
 import {Config} from '../Config';
 import {useScreenOrientation} from '../Hooks';
+import { handleApiError, handleCatchError } from '../Lib/ErrorHandling';
+import { ApiResponse } from '../Services';
 
 export const SignInScreen: React.FC = () => {
   const [email, setEmail] = useState(Config.DEMO_EMAIL);
@@ -45,28 +47,20 @@ export const SignInScreen: React.FC = () => {
 
     setLoading(true);
 
-    const response = {hasError: false, data: null};// await UserService.Login(email, pass);
+    try {
+      const response = new ApiResponse(false, {});// await UserService.Login(email, pass);
 
-    log('response in login screen: ', response);
-
-    if (response.hasError) {
-      const {data} = response;
-
-      let err = 'Something went wrong';
-      let err2 = err;
-      try {
-        err = data.errors[0];
-      } catch (e) {
-        err2 = e.message;
+      log('response in login screen: ', response);
+  
+      if (response.hasError) {
+        handleApiError(response)
+      } else {
+        d.alertWithType('success', 'Login success', 'Welcome');
+  
+        updateUser(response.data)
       }
-
-      log('LOGIN ERROR: ', err, err2);
-
-      d.alertWithType('error', 'Error', err);
-    } else {
-      d.alertWithType('success', 'Login success', 'Welcome');
-
-      updateUser(response.data)
+    } catch(e) {
+      handleCatchError(e)
     }
 
     setLoading(false);

@@ -4,7 +4,7 @@
  * File Created: Tuesday, 16th July 2019 11:52:57 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 6th January 2020 11:04:56 pm
+ * Last Modified: Friday, 10th January 2020 6:35:49 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -19,7 +19,7 @@ import {
 } from '../Lib';
 import AsyncStorage from '@react-native-community/async-storage';
 import {IAppContext, IUser} from '../Interfaces/AppInterface';
-import {setGlobalLogout, setGlobalUserToken} from '../Services/GlobalService';
+import {setGlobalLogout, setGlobalUser} from '../Services/GlobalService';
 
 
 export const AppContext = createContext<IAppContext>({});
@@ -32,8 +32,8 @@ export const AppProvider: React.FC = props => {
   const updateUser = async (newUser: IUser | null) => {
     log('updating new user...', newUser);
 
-    if (newUser && newUser.api_token) {
-      setGlobalUserToken(newUser.api_token);
+    if (newUser) {
+      setGlobalUser(newUser);
     }
 
     setUser(newUser);
@@ -61,7 +61,7 @@ export const AppProvider: React.FC = props => {
     updateContextLoading(true);
     updateUser(null);
 
-    setGlobalUserToken(null);
+    setGlobalUser(null);
 
     AsyncStorage.clear();
 

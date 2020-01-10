@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 2:02:36 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 6th January 2020 11:04:56 pm
+ * Last Modified: Friday, 10th January 2020 6:35:49 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -18,7 +18,7 @@ import { Config } from "../Config";
 import { AppContext } from "../Context/AppContext";
 import { Loader } from "../Components/Loader";
 import { IUser } from "../Interfaces/AppInterface";
-import { setGlobalUserToken } from "../Services/GlobalService";
+import { setGlobalUser } from "../Services/GlobalService";
 
  export const SplashScreen: React.FC = () => {
   log('*** RENDER *** : SPLASH SCREEN');
@@ -79,9 +79,9 @@ import { setGlobalUserToken } from "../Services/GlobalService";
       updateUser(userData); // update data in context and storage
     }
 
-    if (userData && userData.api_token) {
+    if (userData) {
       // this is to be used for all future api calls
-      setGlobalUserToken(userData.api_token);
+      setGlobalUser(userData);
     }
 
     setLoading(false);

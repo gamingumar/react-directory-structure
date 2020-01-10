@@ -19,10 +19,9 @@ An opinionated React Native / React boilerplate for starting new Project.
 - Reactotron
 - AsyncStorage
 
-### Installation
-- copy src folder in your React app.
+### Installation with React Native
+- copy src folder and App.tsx in your React Native app.
 
-#### React Native Setup
 - Update index.js with 
 ```
 import 'react-native-gesture-handler';

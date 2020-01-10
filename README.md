@@ -2,7 +2,7 @@
 An opinionated React Native / React boilerplate for starting new Project.
 
 - React Native App directory structure with some basic boilerplate including some reusable components and context setup.
-- I use this to start new React Native project and similar structure can also be followed in React Web Projects.
+- Use this to start new React Native project and similar pattern can also be followed in React Web Projects.
 - Browse through the src/ folder 
 
 ## Features
@@ -14,11 +14,15 @@ An opinionated React Native / React boilerplate for starting new Project.
 - Library Helpful functions
 - Navigation
 - Assets and Themes
+- Global error handling with notification
 - Typescript
 - Reactotron
 - AsyncStorage
 
 ### Installation
+- copy src folder in your React app.
+
+#### React Native Setup
 - Update index.js with 
 ```
 import 'react-native-gesture-handler';

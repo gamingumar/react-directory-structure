@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 2:25:05 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 6th January 2020 11:04:56 pm
+ * Last Modified: Monday, 13th January 2020 11:11:51 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -46,7 +46,7 @@ export const Loader = (props: ILoaderProps) => {
   if (!inModal) {
     if (visible === true)
       return (
-        <View style={{padding: 5, ...style}}>
+        <View style={{padding: 5, ...styles.container, ...style}}>
           {loader}
           {title != '' && <Text style={[styles.titleStyleSmall]}>{title}</Text>}
         </View>
@@ -62,8 +62,7 @@ export const Loader = (props: ILoaderProps) => {
       // avoidKeyboard
       style={{
         margin: 0,
-        alignItems: 'center',
-        justifyContent: 'center',
+        ...styles.container,
         ...style,
       }}
       backdropOpacity={opacity}>
@@ -83,6 +82,10 @@ Loader.defaultProps = {
 };
 
 const styles = ScaledSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   titleStyle: {
     fontSize: "15@ms0.3",
     color: Colors.grayBG,

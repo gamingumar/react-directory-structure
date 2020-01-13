@@ -4,17 +4,17 @@
  * File Created: Saturday, 14th December 2019 2:25:05 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 13th January 2020 11:11:51 pm
+ * Last Modified: Monday, 13th January 2020 11:44:21 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
 import React from 'react';
-import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import {View, ActivityIndicator, ViewStyle, TextStyle} from 'react-native';
 import Modal from 'react-native-modal';
 
 import {Colors} from '../Themes/Colors';
 import {Text} from './Text';
-import { ScaledSheet } from 'react-native-size-matters';
+import { ms } from 'react-native-size-matters';
 
 interface ILoaderProps {
   visible?: boolean;
@@ -81,17 +81,23 @@ Loader.defaultProps = {
   style: {},
 };
 
-const styles = ScaledSheet.create({
+type TStyle = {
+  container: ViewStyle;
+  titleStyle: TextStyle;
+  titleStyleSmall: TextStyle;
+};
+
+const styles:TStyle = {
   container: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   titleStyle: {
-    fontSize: "15@ms0.3",
+    fontSize: ms(15, 0.3),
     color: Colors.grayBG,
   },
   titleStyleSmall: {
-    fontSize: "12@ms0.3",
+    fontSize: ms(12, 0.3),
     color: Colors.grayBG,
   }
-});
+};

@@ -4,9 +4,9 @@
  * File Created: Friday, 10th January 2020 7:15:58 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 13th January 2020 11:51:53 pm
+ * Last Modified: Monday, 13th January 2020 11:58:23 pm
  * -----
- * Copyright 2020 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
 
 import 'react-native-gesture-handler';

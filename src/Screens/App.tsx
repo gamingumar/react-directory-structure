@@ -4,7 +4,7 @@
  * File Created: Monday, 16th December 2019 6:24:45 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 6th January 2020 11:04:56 pm
+ * Last Modified: Monday, 13th January 2020 11:53:18 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -18,7 +18,7 @@ import {AppProvider} from '../Context/AppContext';
 import {SafeAreaView} from 'react-navigation';
 
 import RNBootSplash from 'react-native-bootsplash';
-import {DropDownHolder} from '../Components/DropDownHolder';
+import {DropDownAlertHolder} from '../Components/DropDownAlertHolder';
 import {is_ios, is_android} from '../Lib';
 import { Config } from '../Config';
 

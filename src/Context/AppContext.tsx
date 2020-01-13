@@ -1,13 +1,14 @@
 /*
  * File: AppContext.tsx
- * Project: THE NEW FLAT RATE
- * File Created: Tuesday, 16th July 2019 11:52:57 pm
+ * Project: GU RN Starter Kit
+ * File Created: Sunday, 14th July 2019 1:12:15 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 10th January 2020 6:35:49 pm
+ * Last Modified: Monday, 13th January 2020 11:55:31 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
+
 import React, {createContext, useState, useEffect} from 'react';
 import {
   log,

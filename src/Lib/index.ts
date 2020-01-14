@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 6th January 2020 11:04:56 pm
+ * Last Modified: Wednesday, 15th January 2020 1:15:01 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -273,4 +273,23 @@ export const parseAmount = (amount: string | number, afterDecimalPlaced = 2) => 
   } catch (e) {
     return amount;
   }
+}
+
+
+/**
+ * GU Lib - Get Initials of full name
+ * @param name Name
+ */
+export const getInitialsFromFullName = (name:string) => {
+  
+  try {
+    let initials = name.match(/\b\w/g) || [];
+    initials = (
+      (initials.shift() || '') + (initials.pop() || '')
+    ).toUpperCase();
+    return initials;
+  } catch (e) {
+    return '';
+  }
+
 }

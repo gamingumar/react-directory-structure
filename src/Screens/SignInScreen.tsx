@@ -1,3 +1,13 @@
+/*
+ * File: SignInScreen.tsx
+ * Project: GU RN Starter Kit
+ * File Created: Monday, 16th December 2019 11:30:34 pm
+ * Author: Umar Aamer (umaraamer@gmail.com)
+ * -----
+ * Last Modified: Wednesday, 15th January 2020 12:32:30 am
+ * -----
+ * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ */
 
 import React, {useState, useContext, useEffect} from 'react';
 import {View, StatusBar, Alert, TextInput, TouchableOpacity} from 'react-native';
@@ -16,6 +26,7 @@ import {Config} from '../Config';
 import {useScreenOrientation} from '../Hooks';
 import { handleApiError, handleCatchError } from '../Lib/ErrorHandling';
 import { ApiResponse } from '../Services';
+import { SafeContainer } from '../Components/SafeContainer';
 
 export const SignInScreen: React.FC = () => {
   const [email, setEmail] = useState(Config.DEMO_EMAIL);
@@ -67,7 +78,7 @@ export const SignInScreen: React.FC = () => {
   };
 
   return (
-    <View style={[styles.outerContainer]}>
+    <SafeContainer>
       <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
       <KeyboardAwareScrollView>
         <View style={styles.container}>
@@ -136,15 +147,11 @@ export const SignInScreen: React.FC = () => {
 
         {loading && <Loader />}
       </KeyboardAwareScrollView>
-    </View>
+      </SafeContainer>
   );
 };
 
 const styles = ScaledSheet.create({
-  outerContainer: {
-    flex: 1,
-    backgroundColor: Colors.white,
-  },
   container: {
     flex: 1,
     // height: SCREEN_HEIGHT,

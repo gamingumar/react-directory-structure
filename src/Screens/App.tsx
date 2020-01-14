@@ -4,7 +4,7 @@
  * File Created: Monday, 16th December 2019 6:24:45 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 13th January 2020 11:53:18 pm
+ * Last Modified: Wednesday, 15th January 2020 12:32:02 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -52,15 +52,10 @@ const App = () => {
   }, []);
 
   return (
-      <SafeAreaView
-        style={{flex: 1, backgroundColor: Colors.grayBG}}
-        forceInset={{vertical: 'never', horizontal: 'never'}}
-        >
         <AppProvider>
           <AppNavigation />
           <DropdownAlert updateStatusBar={is_android} ref={ref => DropDownAlertHolder.setDropDown(ref)} />
         </AppProvider>
-      </SafeAreaView>
   );
 };
 

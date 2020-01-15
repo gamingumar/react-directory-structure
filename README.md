@@ -78,6 +78,8 @@ cd ios && pod install && cd ../
 - Android: https://romannurik.github.io/
 
 
+### Semver
+https://github.com/zmnv/react-native-semver-update#readme
 
 Inspired by Ignite typescript boilerplate. https://github.com/aerian-studios/ignite-typescript-boilerplate
 

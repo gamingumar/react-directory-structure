@@ -75,7 +75,7 @@ cd ios && pod install && cd ../
 
 ### App Icons Generators
 - iOS: https://appicon.co/ OR Icon Set Creator mac app
-- Android: https://romannurik.github.io/
+- Android: https://jgilfelt.github.io/AndroidAssetStudio/index.html
 
 
 ### Semver

@@ -4,40 +4,41 @@
  * File Created: Monday, 16th December 2019 11:30:34 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Wednesday, 15th January 2020 12:32:30 am
+ * Last Modified: Thursday, 27th February 2020 8:52:44 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
 
-import React, {useState, useContext, useEffect} from 'react';
-import {View, StatusBar, Alert, TextInput, TouchableOpacity} from 'react-native';
-import {Text} from '../Components/Text';
-import {Image} from '../Components/Image';
-import {Images} from '../Themes/Images';
-import {Colors} from '../Themes/Colors';
-import {scale, ScaledSheet, verticalScale} from 'react-native-size-matters';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useNavigation} from 'react-navigation-hooks';
-import {log,} from '../Lib';
-import {Loader} from '../Components/Loader';
-import {DropDownAlertHolder} from '../Components/DropDownAlertHolder';
-import {AppContext} from '../Context/AppContext';
-import {Config} from '../Config';
-import {useScreenOrientation} from '../Hooks';
-import { handleApiError, handleCatchError } from '../Lib/ErrorHandling';
-import { ApiResponse } from '../Services';
-import { SafeContainer } from '../Components/SafeContainer';
+import React, { useState, useContext, useEffect } from "react";
+import { View, StatusBar, Alert, StyleSheet } from "react-native";
+import { TextInput, Button, Subheading } from "react-native-paper";
+import { Text } from "../Components/Text";
+import { Image } from "../Components/Image";
+import { Images } from "../Themes/Images";
+import { Colors } from "../Themes/Colors";
+import { vs, s, ms } from "react-native-size-matters";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useNavigation } from "react-navigation-hooks";
+import { log } from "../Lib";
+import { Loader } from "../Components/Loader";
+import { DropDownAlertHolder } from "../Components/DropDownAlertHolder";
+import { AppContext } from "../Context/AppContext";
+import { Config } from "../Config";
+import { useScreenOrientation } from "../Hooks";
+import { handleApiError, handleCatchError } from "../Lib/ErrorHandling";
+import { ApiResponse } from "../Services";
+import { SafeContainer } from "../Components/SafeContainer";
 
 export const SignInScreen: React.FC = () => {
   const [email, setEmail] = useState(Config.DEMO_EMAIL);
   const [pass, setPass] = useState(Config.DEMO_PASSWORD);
   const [loading, setLoading] = useState(false);
 
-  const {user, updateUser} = useContext(AppContext);
+  const { user, updateUser } = useContext(AppContext);
 
-  const {width, height} = useScreenOrientation();
+  const { width, height } = useScreenOrientation();
 
-  const {navigate} = useNavigation();
+  const { navigate } = useNavigation();
 
   useEffect(() => {
     if (user && user.api_token) {
@@ -50,28 +51,27 @@ export const SignInScreen: React.FC = () => {
   const d = DropDownAlertHolder.getDropDown();
 
   const _login = async () => {
-
-    if (email === '' || pass === '') {
-      d.alertWithType('info', 'Email and Password required to login', '');
+    if (email === "" || pass === "") {
+      d.alertWithType("info", "Email and Password required to login", "");
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = new ApiResponse(false, {});// await UserService.Login(email, pass);
+      const response = new ApiResponse(false, {}); // await UserService.Login(email, pass);
 
-      log('response in login screen: ', response);
-  
+      log("response in login screen: ", response);
+
       if (response.hasError) {
-        handleApiError(response)
+        handleApiError(response);
       } else {
-        d.alertWithType('success', 'Login success', 'Welcome');
-  
-        updateUser(response.data)
+        d.alertWithType("success", "Login success", "Welcome");
+
+        updateUser(response.data);
       }
-    } catch(e) {
-      handleCatchError(e)
+    } catch (e) {
+      handleCatchError(e);
     }
 
     setLoading(false);
@@ -82,17 +82,18 @@ export const SignInScreen: React.FC = () => {
       <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
       <KeyboardAwareScrollView>
         <View style={styles.container}>
-          <View style={{alignItems: 'center', padding: verticalScale(15)}}>
-            <Image
+          <View style={{ alignItems: "center", padding: vs(15) }}>
+            {/* <Image
               source={Images.Logo}
               style={{height: height / 10}}
               resizeMode="contain"
-            />
+            /> */}
           </View>
 
-          <View style={{marginVertical: height / 15}}>
+          <View style={{ marginVertical: height / 15 }}>
             <TextInput
               value={email}
+              label="Email"
               onChangeText={setEmail}
               // title="Email"
               keyboardType="email-address"
@@ -103,74 +104,55 @@ export const SignInScreen: React.FC = () => {
               onSubmitEditing={() => passwordInputRef.focus()}
             />
 
+            <View style={{ marginVertical: vs(10) }} />
+
             <TextInput
               value={pass}
               onChangeText={setPass}
-              // title="Password"
+              label="Password"
               ref={(ref: typeof passwordInputRef) => (passwordInputRef = ref)}
               textContentType="password"
               autoCompleteType="password"
               secureTextEntry
               onSubmitEditing={_login}
-              returnKeyLabel={'go'}
-              returnKeyType={'go'}
+              returnKeyLabel={"go"}
+              returnKeyType={"go"}
             />
-
-            {/* <View style={{marginVertical: verticalScale(10)}} /> */}
           </View>
 
-          <TouchableOpacity onPress={_login}>
-            <View style={styles.button}>
-              <Text style={styles.buttonText}>LOGIN</Text>
-            </View>
-          </TouchableOpacity>
+          <Button mode="contained" onPress={_login}>
+            LOGIN
+          </Button>
 
           <View
             style={{
               // flex: 1,
-              alignSelf: 'flex-end',
-              justifyContent: 'flex-end',
-              marginTop: verticalScale(30),
-            }}>
-            <Text
-              style={styles.buttonText}
-              onPress={() => Alert.alert('wait for it!')}>
-              {/* Forgot Password? */}
-            </Text>
+              alignSelf: "flex-end",
+              justifyContent: "flex-end",
+              marginTop: vs(30)
+            }}
+          >
+            <Subheading onPress={() => Alert.alert("wait for it!")}>
+              Forgot Password?
+            </Subheading>
           </View>
         </View>
 
-        <Text style={{color: Colors.grayBG, margin: verticalScale(40)}}>
-          {__DEV__ ? 'DEV ' : ''}
+        <Text style={{ color: Colors.grayBG, margin: vs(40) }}>
+          {__DEV__ ? "DEV " : ""}
           {Config.APP_VERSION}
         </Text>
 
         {loading && <Loader />}
       </KeyboardAwareScrollView>
-      </SafeContainer>
+    </SafeContainer>
   );
 };
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // height: SCREEN_HEIGHT,
-    padding: '30@s',
-    // alignItems: "stretch",
-    justifyContent: 'space-between',
-    // backgroundColor: 'green',
-  },
-  button: {
-    // marginVertical: "20@s",
-    padding: '14@ms',
-
-    borderColor: Colors.grayBG,
-    borderWidth: 1,
-
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: Colors.grayBG,
-    fontSize: '14@ms',
-  },
+    padding: s(30),
+    justifyContent: "space-between"
+  }
 });

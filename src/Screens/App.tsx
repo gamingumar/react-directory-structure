@@ -4,7 +4,7 @@
  * File Created: Monday, 16th December 2019 6:24:45 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Wednesday, 15th January 2020 12:32:02 am
+ * Last Modified: Thursday, 27th February 2020 2:19:38 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -13,7 +13,7 @@ import {StatusBar, YellowBox, View} from 'react-native';
 import DropdownAlert from 'react-native-dropdownalert';
 import {AppNavigation} from '../Navigation';
 import {Colors} from '../Themes/Colors';
-import {useScreens} from 'react-native-screens';
+import {enableScreens} from 'react-native-screens';
 import {AppProvider} from '../Context/AppContext';
 import {SafeAreaView} from 'react-navigation';
 
@@ -22,7 +22,7 @@ import {DropDownAlertHolder} from '../Components/DropDownAlertHolder';
 import {is_ios, is_android} from '../Lib';
 import { Config } from '../Config';
 
-useScreens();
+enableScreens();
 
 if (__DEV__) {
   import('../Config/ReactotronConfig').then(() =>

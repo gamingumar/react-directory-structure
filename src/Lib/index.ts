@@ -1,10 +1,10 @@
 /*
  * File: index.ts
- * Project: Lib
+ * Project: GU RN Starter Kit
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Thursday, 27th February 2020 11:14:40 pm
+ * Last Modified: Friday, 28th February 2020 12:40:19 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -16,7 +16,7 @@ import { Dimensions, Platform, Linking, Alert } from "react-native";
 import AsyncStorage from "@react-native-community/async-storage";
 import reactotron from "reactotron-react-native";
 import DeviceInfo from 'react-native-device-info';
-import { TStorageKeys } from "../Interfaces/AppInterface";
+import { TStorageKeys } from "../Services/Interfaces/AppInterface";
 
 /**
  * GU-Lib - Compare 2 Arrays

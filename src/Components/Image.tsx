@@ -1,10 +1,10 @@
 /*
  * File: Image.tsx
- * Project: Components
+ * Project: GU RN Starter Kit
  * File Created: Saturday, 14th December 2019 2:24:19 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 6th January 2020 11:04:56 pm
+ * Last Modified: Friday, 28th February 2020 12:40:19 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */

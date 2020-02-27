@@ -4,7 +4,7 @@
  * File Created: Friday, 10th January 2020 6:31:46 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 10th January 2020 6:35:49 pm
+ * Last Modified: Friday, 28th February 2020 12:24:54 am
  * -----
  * Copyright 2020 - 2020 WhileGeek, https://umar.tech
  */
@@ -12,7 +12,7 @@
 import { DropDownAlertHolder } from '../Components/DropDownAlertHolder';
 import { log } from './index'
 import { Config } from '../Config'
-import { IApiResponse } from '../Services';
+import { IApiResponse } from '../Services/api-client';
 
 
 /**

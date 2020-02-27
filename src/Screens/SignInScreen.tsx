@@ -4,7 +4,7 @@
  * File Created: Monday, 16th December 2019 11:30:34 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Thursday, 27th February 2020 8:52:44 pm
+ * Last Modified: Friday, 28th February 2020 12:24:54 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -22,11 +22,11 @@ import { useNavigation } from "react-navigation-hooks";
 import { log } from "../Lib";
 import { Loader } from "../Components/Loader";
 import { DropDownAlertHolder } from "../Components/DropDownAlertHolder";
-import { AppContext } from "../Context/AppContext";
+import { AppContext } from "../Services/AppContext";
 import { Config } from "../Config";
 import { useScreenOrientation } from "../Hooks";
 import { handleApiError, handleCatchError } from "../Lib/ErrorHandling";
-import { ApiResponse } from "../Services";
+import { ApiResponse } from "../Services/api-client";
 import { SafeContainer } from "../Components/SafeContainer";
 
 export const SignInScreen: React.FC = () => {

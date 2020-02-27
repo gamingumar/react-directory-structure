@@ -1,10 +1,10 @@
 /*
  * File: App.tsx
- * Project: Screens
+ * Project: GU RN Starter Kit
  * File Created: Monday, 16th December 2019 6:24:45 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Thursday, 27th February 2020 2:19:38 am
+ * Last Modified: Friday, 28th February 2020 12:40:19 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -14,7 +14,7 @@ import DropdownAlert from 'react-native-dropdownalert';
 import {AppNavigation} from '../Navigation';
 import {Colors} from '../Themes/Colors';
 import {enableScreens} from 'react-native-screens';
-import {AppProvider} from '../Context/AppContext';
+import {AppProvider} from '../Services/AppContext';
 import {SafeAreaView} from 'react-navigation';
 
 import RNBootSplash from 'react-native-bootsplash';

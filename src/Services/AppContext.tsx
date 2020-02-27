@@ -4,7 +4,7 @@
  * File Created: Sunday, 14th July 2019 1:12:15 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 13th January 2020 11:55:31 pm
+ * Last Modified: Friday, 28th February 2020 12:24:54 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -19,8 +19,8 @@ import {
   _cloneDeep,
 } from '../Lib';
 import AsyncStorage from '@react-native-community/async-storage';
-import {IAppContext, IUser} from '../Interfaces/AppInterface';
-import {setGlobalLogout, setGlobalUser} from '../Services/GlobalService';
+import {IAppContext, IUser} from './Interfaces/AppInterface';
+import {setGlobalLogout, setGlobalUser} from './GlobalService';
 
 
 export const AppContext = createContext<IAppContext>({});

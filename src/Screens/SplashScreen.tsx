@@ -1,10 +1,10 @@
 /*
  * File: SplashScreen.tsx
- * Project: Screens
+ * Project: GU RN Starter Kit
  * File Created: Saturday, 14th December 2019 2:02:36 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 10th January 2020 6:35:49 pm
+ * Last Modified: Friday, 28th February 2020 12:40:19 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -15,9 +15,9 @@ import { useNavigation } from "react-navigation-hooks";
 import { log, storageGet } from "../Lib";
 import { Colors } from "../Themes/Colors";
 import { Config } from "../Config";
-import { AppContext } from "../Context/AppContext";
+import { AppContext } from "../Services/AppContext";
 import { Loader } from "../Components/Loader";
-import { IUser } from "../Interfaces/AppInterface";
+import { IUser } from "../Services/Interfaces/AppInterface";
 import { setGlobalUser } from "../Services/GlobalService";
 
  export const SplashScreen: React.FC = () => {

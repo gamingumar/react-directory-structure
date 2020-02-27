@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 12:40:19 am
+ * Last Modified: Friday, 28th February 2020 12:55:57 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -156,6 +156,18 @@ export function openPhone(phone: string) {
   } catch (e) { log('unable to open') }
 }
 
+/**
+ * GU Lib - Show Alert
+ * @param alertTitle - Alert Title
+ * @param alertText - Alert Text
+ */
+export function showAlert(alertTitle: string = '', alertText: string = '') {
+  if (Platform.OS === 'web') {
+    alert(alertTitle)
+  } else {
+    Alert.alert(alertTitle, alertText)
+  }
+}
 
 /**
  * GU Lib - A dummy alert function
@@ -167,7 +179,7 @@ export function alertCheck(msg?: string) {
     msg = "Alert Check"
   }
 
-  Alert.alert(msg)
+  showAlert(msg)
 }
 
 

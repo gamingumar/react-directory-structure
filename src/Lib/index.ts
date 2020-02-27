@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Wednesday, 15th January 2020 1:20:20 am
+ * Last Modified: Thursday, 27th February 2020 11:14:40 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -179,7 +179,11 @@ export function alertCheck(msg?: string) {
  */
 export async function storageUpdate(key: TStorageKeys, data: any) {
   log(`UPDATING STORAGE with key ${key}: `, data)
-  return await AsyncStorage.setItem(key, JSON.stringify(data));
+  try {
+    return await AsyncStorage.setItem(key, data ? JSON.stringify(data) : '');
+  } catch(e) {
+    log('Storage update error: ', e.message, e)
+  }
 }
 
 
@@ -189,15 +193,27 @@ export async function storageUpdate(key: TStorageKeys, data: any) {
  */
 export async function storageGet(key: TStorageKeys): Promise<any> {
   return new Promise(async resolve => {
-    AsyncStorage.getItem(key).then((data) => {
-      data = !data ? null : JSON.parse(data);
+    try  {
+      AsyncStorage.getItem(key).then((data) => {
+        try {
+          data = !data ? null : JSON.parse(data);
+        } catch(e) {
+          log('async storage error: ', e.message, e)
+          data = ""
+        }
+  
+        return resolve(data);
+      }, () => {
+        // Couldn't read row 0, col 0 from CursorWindow
+        resolve(""); // Force not to break
+      });  
+    } catch (e)  {
+      log('Storage GET Error: ', e.message, e)
+      resolve("")
+    }
+    
 
-      return resolve(data);
-    }, () => {// Couldn't read row 0, col 0 from CursorWindow
-      resolve(null); // Force not to break
-    });
-
-    // log('data got out of storage: ', data);
+  //   // log('data got out of storage: ', data);
 
   });
 }

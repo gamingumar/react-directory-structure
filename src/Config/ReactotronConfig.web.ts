@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:11:43 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 7:21:16 pm
+ * Last Modified: Friday, 28th February 2020 7:06:14 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -24,8 +24,7 @@ Reactotron.clear();
 Reactotron.configure() // controls connection & communication settings
   .use(
     trackGlobalErrors({
-      veto: frame => frame.fileName.indexOf("/node_modules/react-native/") >= 0,
-      offline: true
+      veto: frame => frame.fileName.indexOf("/node_modules/react-native/") >= 0
     })
   )
   .use(apisaucePlugin({

@@ -1,8 +1,19 @@
-import DeviceInfo from 'react-native-device-info'
+/*
+ * File: api-client.ts
+ * Project: GU RN Starter Kit
+ * File Created: Thursday, 27th February 2020 1:52:40 am
+ * Author: Umar Aamer (umaraamer@gmail.com)
+ * -----
+ * Last Modified: Friday, 28th February 2020 7:10:02 pm
+ * -----
+ * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ */
+
 import { create } from "apisauce";
 import { log } from "../Lib";
 import { Config } from "../Config";
 import { logoutGlobal } from "./GlobalService";
+import Reactotron from 'reactotron-react-js'
 
 
 export interface IApiData {
@@ -58,13 +69,16 @@ const ApiClient = () => {
     timeout: 60000
   });
 
+  if (__DEV__) {
+    api.addMonitor(Reactotron.apisauce)
+  }
   
-  api.addRequestTransform(request => {
-    request.data.client_id = `${DeviceInfo.getUniqueId()}`
-    // request.data = qs.stringify(request.data)
+  // api.addRequestTransform(request => {
+  //   request.data.client_id = `${DeviceInfo.getUniqueId()}`
+  //   // request.data = qs.stringify(request.data)
 
-    log('API CLIENT is: ', request)
-  })
+  //   log('API CLIENT is: ', request)
+  // })
 
   return api;
 };

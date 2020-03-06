@@ -4,7 +4,7 @@
  * File Created: Thursday, 27th February 2020 1:52:40 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 7:10:02 pm
+ * Last Modified: Friday, 6th March 2020 1:25:26 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -88,7 +88,7 @@ const ApiClient = () => {
 export const ApiPost = async (url = "", data = {}):Promise<IApiResponse> => {
   log("api post: ", url);
 
-  const response = await ApiClient().post(url, {...data, api_token});
+  const response = await ApiClient().post(url, {...data});
 
   log("POST Response before parse: ", response);
 

@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 12:55:57 am
+ * Last Modified: Saturday, 7th March 2020 12:12:41 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -321,3 +321,6 @@ export const getInitialsOfName = (name:string):string => {
   }
 
 }
+
+// Regular expression for validating phone number
+export const PHONE_REG_EXP = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/

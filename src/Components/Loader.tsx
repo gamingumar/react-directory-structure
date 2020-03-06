@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 2:25:05 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 12:40:19 am
+ * Last Modified: Friday, 6th March 2020 11:52:38 pm
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -42,7 +42,7 @@ interface ILoaderProps {
 export const Loader = (props: ILoaderProps) => {
   const {size, inModal, visible, opacity, style, title, loaderColor} = props;
 
-  const loader = <ActivityIndicator color={loaderColor || Colors.grayBG} size={size} />;
+  const loader = <ActivityIndicator color={loaderColor || Colors.white} size={size} />;
   if (!inModal) {
     if (visible === true)
       return (

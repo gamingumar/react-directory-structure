@@ -4,7 +4,7 @@
  * File Created: Sunday, 14th July 2019 1:12:15 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 12:24:54 am
+ * Last Modified: Saturday, 7th March 2020 12:12:41 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -19,11 +19,24 @@ import {
   _cloneDeep,
 } from '../Lib';
 import AsyncStorage from '@react-native-community/async-storage';
-import {IAppContext, IUser} from './Interfaces/AppInterface';
 import {setGlobalLogout, setGlobalUser} from './GlobalService';
+import { IUser } from './Interfaces/AppInterface';
 
 
-export const AppContext = createContext<IAppContext>({});
+interface IAppContext {
+  logout: Function;
+  logoutIfTimeout: Function;
+  user: IUser | null;
+  updateUser(newUser: IUser | null): void;
+}
+
+export const AppContext = createContext<IAppContext>({
+  logout: () => {},
+  logoutIfTimeout: () => {},
+  user: null,
+  updateUser: (newUser: IUser | null) => null
+});
+
 
 export const AppProvider: React.FC = props => {
   // ? future use for logged in user
@@ -33,10 +46,8 @@ export const AppProvider: React.FC = props => {
   const updateUser = async (newUser: IUser | null) => {
     log('updating new user...', newUser);
 
-    if (newUser) {
-      setGlobalUser(newUser);
-    }
-
+    setGlobalUser(newUser);
+    
     setUser(newUser);
 
     await storageUpdate('user', newUser);

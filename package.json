@@ -1,6 +1,11 @@
 {
   "name": "react-directory-structure",
-  "version": "0.0.1",
+  "author": {
+    "email": "umaraamer@gmail.com",
+    "name": "gamingumar",
+    "url": "https://gamingumar.com"
+  },
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -23,6 +28,7 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-modal": "^11.5.3",
+    "react-native-paper": "^3.6.0",
     "react-native-reanimated": "^1.4.0",
     "react-native-safe-area-context": "^0.6.2",
     "react-native-screens": "^2.0.0-alpha.22",

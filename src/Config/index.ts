@@ -1,10 +1,12 @@
 /*
- * File: index.ts (Config)
+ * File: index.ts
+ * Project: GU RN Starter Kit
+ * File Created: Thursday, 27th February 2020 1:52:40 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 10th January 2020 6:35:49 pm
+ * Last Modified: Saturday, 7th March 2020 12:12:50 am
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
+ * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
 
 import { RouteKeys } from "../Navigation/RouteKeys";
@@ -29,6 +31,8 @@ export let Config = {
 
   API_URL, // !API,
   imageCache: "force-cache",
+
+  LOGOUT_STATUS_LIST: [401], //? LOGOUT if any of these status codes occur
 
   FIRST_SCREEN: RouteKeys.Home, //.Home //TODO: ONLY FOR DEBUG Home
   FIRST_SCREEN_AUTH_FAIL: RouteKeys.SignIn, //.SignIn

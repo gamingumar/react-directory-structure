@@ -4,7 +4,7 @@
  * File Created: Monday, 30th December 2019 11:38:07 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Wednesday, 15th January 2020 12:32:09 am
+ * Last Modified: Saturday, 7th March 2020 12:12:41 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -18,10 +18,11 @@ import { AppContext } from '../Context/AppContext';
 import { useNavigation } from 'react-navigation-hooks';
 import { RouteKeys } from '../Navigation/RouteKeys';
 import { SafeContainer } from '../Components/SafeContainer';
+import { Title } from 'react-native-paper';
 
 export const HomeScreen: React.FC = () => {
 
-  const {user} = useContext(AppContext);
+  const {user, logout} = useContext(AppContext);
   const {navigate} = useNavigation()
 
   //? This effect is called if user logs out from any authenticated screen.
@@ -29,7 +30,7 @@ export const HomeScreen: React.FC = () => {
   useEffect(() => {
     log('DATA IN HOME: ', user);
 
-    if (!user || !user.access_token) {
+    if (!user) {
       // ? logout if no user
       setTimeout(() => {
         log('NAVIGATING TO LOGOUT...');
@@ -39,7 +40,7 @@ export const HomeScreen: React.FC = () => {
   }, [user]);
   return (
     <SafeContainer style={styles.container}>
-      <Text>HomeScreen</Text>
+      <Title onPress={() => logout()}>Logout</Title>
     </SafeContainer>
   );
 };

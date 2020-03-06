@@ -4,7 +4,7 @@
  * File Created: Thursday, 27th February 2020 1:52:40 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 6th March 2020 1:25:26 am
+ * Last Modified: Saturday, 7th March 2020 12:12:41 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -12,7 +12,7 @@
 import { create } from "apisauce";
 import { log } from "../Lib";
 import { Config } from "../Config";
-import { logoutGlobal } from "./GlobalService";
+import { logoutGlobal, getGlobalUser } from "./GlobalService";
 import Reactotron from 'reactotron-react-js'
 
 
@@ -60,11 +60,16 @@ export class ApiResponse implements IApiResponse {
  */
 const ApiClient = () => {
 
+  log('creating api client...')
+  let user = getGlobalUser();
+  let userToken = user ? user.id : '';
+
+
   let api = create({
     baseURL: Config.API_URL,
     headers: {
       "Content-Type": "application/json",
-      // "Authorization": `bearer ${getGlobalUser().token}`
+      "Authorization": `bearer ${userToken}`
     },
     timeout: 60000
   });
@@ -98,16 +103,12 @@ export const ApiPost = async (url = "", data = {}):Promise<IApiResponse> => {
   return parseResponse(response);
 };
 
-//? LOGOUT if any of these status codes
-const LOGOUT_STATUS_LIST:number[] = [401]
-
 const _logoutOnError = (errorCode = 0) => {
-  if (LOGOUT_STATUS_LIST.includes(errorCode)) {
+  if (Config.LOGOUT_STATUS_LIST.includes(errorCode)) {
     log(`LOGGING OUT GLOBAL due to ${errorCode} GET 🚪`)
     logoutGlobal();
   }
 }
-
 
 /**
  * GU API Get Request

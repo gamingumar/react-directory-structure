@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 2:02:36 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 12:40:19 am
+ * Last Modified: Saturday, 7th March 2020 12:12:41 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -75,14 +75,12 @@ import { setGlobalUser } from "../Services/GlobalService";
 
     const userData: IUser = await storageGet('user');
 
-    if (userData) {
-      updateUser(userData); // update data in context and storage
-    }
-
-    if (userData) {
-      // this is to be used for all future api calls
-      setGlobalUser(userData);
-    }
+    
+    updateUser(userData); // update data in context and storage
+    
+    // this is to be used for all future api calls
+    setGlobalUser(userData);
+    
 
     setLoading(false);
   }

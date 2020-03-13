@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Saturday, 7th March 2020 12:12:41 am
+ * Last Modified: Saturday, 14th March 2020 1:20:31 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
  */
@@ -12,11 +12,17 @@
 import isEqual from 'lodash/isEqual'
 import sortBy from 'lodash/sortBy'
 import cloneDeep from 'lodash/cloneDeep'
-import { Dimensions, Platform, Linking, Alert } from "react-native";
-import AsyncStorage from "@react-native-community/async-storage";
-import reactotron from "reactotron-react-native";
-import DeviceInfo from 'react-native-device-info';
-import { TStorageKeys } from "../Services/Interfaces/AppInterface";
+// import {AsyncStorage} from "@react-native-community/async-storage"
+import { Dimensions, Platform, AsyncStorage, Linking, Alert } from "react-native";
+import { TStorageKeys } from '../Services/Interfaces/AuthInterface';
+import { Tron } from './tron';
+// import reactotron from "reactotron-react-native";
+// import DeviceInfo from 'react-native-device-info';
+
+export const is_android = Platform.OS === "android";
+export const is_ios = Platform.OS === "ios";
+export const is_web = Platform.OS === "web";
+
 
 /**
  * GU-Lib - Compare 2 Arrays
@@ -80,26 +86,15 @@ export function isEmpty(str: any) {
  */
 export const log = (...shitPile: any) => {
   if (__DEV__) {
-    reactotron.log(...shitPile);
+    
+    Tron.log(...shitPile);
     console.log(...shitPile);
   }
 };
 
-export const warn = (...shitPile: any) => {
-  if (__DEV__) {
-    reactotron.warn(...shitPile);
-    console.warn(...shitPile);
-  }
-};
-export const error = (...shitPile: any) => {
-  if (__DEV__) {
-    reactotron.error(...shitPile);
-    console.debug(...shitPile);
-  }
-};
-
-export const is_android = Platform.OS === "android";
-export const is_ios = Platform.OS === "ios";
+// if (is_web) {
+//   AsyncStorage = require("react-native")
+// }
 
 
 /**
@@ -156,6 +151,7 @@ export function openPhone(phone: string) {
   } catch (e) { log('unable to open') }
 }
 
+
 /**
  * GU Lib - Show Alert
  * @param alertTitle - Alert Title
@@ -168,6 +164,7 @@ export function showAlert(alertTitle: string = '', alertText: string = '') {
     Alert.alert(alertTitle, alertText)
   }
 }
+
 
 /**
  * GU Lib - A dummy alert function
@@ -193,7 +190,7 @@ export async function storageUpdate(key: TStorageKeys, data: any) {
   log(`UPDATING STORAGE with key ${key}: `, data)
   try {
     return await AsyncStorage.setItem(key, data ? JSON.stringify(data) : '');
-  } catch(e) {
+  } catch (e) {
     log('Storage update error: ', e.message, e)
   }
 }
@@ -205,29 +202,33 @@ export async function storageUpdate(key: TStorageKeys, data: any) {
  */
 export async function storageGet(key: TStorageKeys): Promise<any> {
   return new Promise(async resolve => {
-    try  {
+    try {
       AsyncStorage.getItem(key).then((data) => {
         try {
-          data = !data ? null : JSON.parse(data);
-        } catch(e) {
+          data = !data ? '' : JSON.parse(data);
+        } catch (e) {
           log('async storage error: ', e.message, e)
           data = ""
         }
-  
+
         return resolve(data);
       }, () => {
         // Couldn't read row 0, col 0 from CursorWindow
         resolve(""); // Force not to break
-      });  
-    } catch (e)  {
+      });
+    } catch (e) {
       log('Storage GET Error: ', e.message, e)
       resolve("")
     }
-    
 
-  //   // log('data got out of storage: ', data);
+
+    //   // log('data got out of storage: ', data);
 
   });
+}
+
+export const storageClear = () => {
+  AsyncStorage.clear();
 }
 
 
@@ -261,7 +262,7 @@ export async function storageMultiGet(keys: string[]): Promise<any> {
 /**
  * GU - Check if device is Android Emulator (Async)
  */
-export const isAndroidEmulator = async () => Promise.resolve(await DeviceInfo.isEmulator() && is_android);
+// export const isAndroidEmulator = async () => Promise.resolve(await DeviceInfo.isEmulator() && is_android);
 
 
 
@@ -308,10 +309,10 @@ export const parseAmount = (amount: string | number, afterDecimalPlaced = 2) => 
  * GU Lib - Get Initials of full name
  * @param name Name
  */
-export const getInitialsOfName = (name:string):string => {
-  
+export const getInitialsOfName = (name: string): string => {
+
   try {
-    let initials = name.match(/\b\w/g) || [];
+    let initials:any = name.match(/\b\w/g) || [];
     initials = (
       (initials.shift() || '') + (initials.pop() || '')
     ).toUpperCase();

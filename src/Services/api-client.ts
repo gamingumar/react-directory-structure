@@ -4,7 +4,7 @@
  * File Created: Thursday, 27th February 2020 1:52:40 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Saturday, 7th March 2020 12:12:41 am
+ * Last Modified: Saturday, 14th March 2020 1:22:53 am
  * -----
  * Copyright 2019 - 2020 WhileGeek, https://umar.tech
  */
@@ -13,7 +13,7 @@ import { create } from "apisauce";
 import { log } from "../Lib";
 import { Config } from "../Config";
 import { logoutGlobal, getGlobalUser } from "./GlobalService";
-import Reactotron from 'reactotron-react-js'
+import { Tron } from "../Lib/tron";
 
 
 export interface IApiData {
@@ -75,7 +75,7 @@ const ApiClient = () => {
   });
 
   if (__DEV__) {
-    api.addMonitor(Reactotron.apisauce)
+    api.addMonitor(Tron.apisauce)
   }
   
   // api.addRequestTransform(request => {

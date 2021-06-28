@@ -24,45 +24,8 @@ An opinionated React Native / React boilerplate for starting new Project.
 
 - Update index.js with 
 ```
-import 'react-native-gesture-handler';
 import App from './src/Screens/App';
 ```
-
-- Native Libs setup
-Follow instructions in:
-- https://github.com.cnpmjs.org/zoontek/react-native-bootsplash
-- https://github.com/oblador/react-native-vector-icons
-
-- Add logo.png in assets/images/ or remove from SignInScreen
-
-- Edit info.plist file and add fonts
-```
-<key>UIAppFonts</key>
-<array>
-  <string>AntDesign.ttf</string>
-  <string>Entypo.ttf</string>
-  <string>EvilIcons.ttf</string>
-  <string>Feather.ttf</string>
-  <string>FontAwesome.ttf</string>
-  <string>FontAwesome5_Brands.ttf</string>
-  <string>FontAwesome5_Regular.ttf</string>
-  <string>FontAwesome5_Solid.ttf</string>
-  <string>Foundation.ttf</string>
-  <string>Ionicons.ttf</string>
-  <string>MaterialIcons.ttf</string>
-  <string>MaterialCommunityIcons.ttf</string>
-  <string>SimpleLineIcons.ttf</string>
-  <string>Octicons.ttf</string>
-  <string>Zocial.ttf</string>
-</array>
-
-```
-
-```pod install```
-
-### Recommended and Required Dependencies:
-
-Find all dependencies in package.json file.
 
 #### Navigation and other Libs:
 
@@ -78,6 +41,9 @@ yarn add -D @types/lodash reactotron-react-native @types/react-native-vector-ico
 cd ios && pod install && cd ../
 ```
 
+### Recommended and Required Dependencies:
+
+Find all dependencies in package.json file.
 
 ### App Icons Generators
 - iOS: https://appicon.co/ OR Icon Set Creator mac app

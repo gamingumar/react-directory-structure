@@ -4,7 +4,7 @@
  * File Created: Monday, 16th December 2019 11:30:34 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Tuesday, 29th June 2021 12:08:12 am
+ * Last Modified: Tuesday, 29th June 2021 1:19:11 am
  * -----
  * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
@@ -32,7 +32,6 @@ import { ApiResponse } from "../../Services/api-client";
 import { SafeContainer } from "../../Components/SafeContainer";
 import { RouteKeys } from "../../Navigation/RouteKeys";
 import { AuthApi } from "../../Services/API/AuthApi";
-import { ILoginResponse } from "../../Services/Interfaces/AuthInterface";
 
 const INITIAL_VALUES = {
   email: Config.DEMO_EMAIL,
@@ -84,10 +83,13 @@ export const SignInScreen: React.FC = () => {
 
       try {
         if (response.hasError) {
-          // handleApiError(response, "SIGN IN SCREEN: ");
-          if (response.status === 401) {
-            message = "Invalid email or password.";
-          }
+          handleApiError(response, "login", false);
+          
+          // ! dummy login
+          message = "Logged in!";
+          alertType = "success";
+          updateUser(Config.DUMMY_USER);
+
         } else {
           // ? Account creation success
           log("LOGIN SUCCESS: ", response);
@@ -110,10 +112,7 @@ export const SignInScreen: React.FC = () => {
 
       notify.alertWithType(alertType, message, "");
 
-      setLoading(false);
-      if (!response.hasError) {
-        navigate(RouteKeys.SignIn);
-      }
+      // ! setLoading(false);
     }
   });
 

@@ -4,7 +4,7 @@
  * File Created: Friday, 10th January 2020 6:31:46 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Tuesday, 29th June 2021 12:08:12 am
+ * Last Modified: Tuesday, 29th June 2021 1:18:38 am
  * -----
  * Copyright 2020 - 2021 WhileGeek, https://umar.tech
  */
@@ -53,6 +53,8 @@ export const handleApiError = (response: IApiResponse, from:string|null = null, 
 
     if (status === 401 && from !== "login") {
       err = "Please Login.";
+    } else if (response.status === 401 && from === 'login') {
+      err = "Invalid email or password.";
     }
   } catch (e) {
     err2 = e.message;

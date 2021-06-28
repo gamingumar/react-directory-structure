@@ -1,10 +1,10 @@
 /*
  * File: ReactotronConfig.ts
- * Project: GU RN Starter Kit
+ * Project: https://github.com/gamingumar/react-directory-structure
  * File Created: Saturday, 14th December 2019 1:11:43 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 28th June 2021 9:31:59 pm
+ * Last Modified: Tuesday, 29th June 2021 12:08:12 am
  * -----
  * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */

@@ -3,7 +3,7 @@
   ],
   "psi-header.variables": [
     ["projectCreationYear", "2019"],
-    ["projectname", "GU RN Starter Kit"]
+    ["projectname", "https://github.com/gamingumar/react-directory-structure"]
   ],
   "psi-header.changes-tracking": {
     "isActive": true

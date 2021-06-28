@@ -1,10 +1,10 @@
 /*
  * File: useNoAuthNav.tsx
- * Project: GU RN Starter Kit
+ * Project: https://github.com/gamingumar/react-directory-structure
  * File Created: Monday, 28th June 2021 9:09:23 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 28th June 2021 9:09:26 pm
+ * Last Modified: Tuesday, 29th June 2021 12:08:12 am
  * -----
  * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */

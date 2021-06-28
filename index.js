@@ -4,14 +4,16 @@
  * File Created: Friday, 10th January 2020 7:15:58 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 13th January 2020 11:58:23 pm
+ * Last Modified: Monday, 28th June 2021 9:02:10 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
 
-import 'react-native-gesture-handler';
-import {AppRegistry} from 'react-native';
-import App from './src/Screens/App';
-import {name as appName} from './app.json';
+import { registerRootComponent } from 'expo';
 
-AppRegistry.registerComponent(appName, () => App);
+import App from './App';
+
+// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
+// It also ensures that whether you load the app in the Expo client or in a native build,
+// the environment is set up appropriately
+registerRootComponent(App);

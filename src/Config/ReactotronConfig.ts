@@ -4,41 +4,55 @@
  * File Created: Saturday, 14th December 2019 1:11:43 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 7:21:16 pm
+ * Last Modified: Monday, 28th June 2021 9:31:59 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
+ * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
 
-import {AsyncStorage} from "react-native";
-import apisaucePlugin from 'reactotron-apisauce'
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {NativeModules} from "react-native";
 import Reactotron, {
+  asyncStorage, 
   trackGlobalErrors,
-  // openInEditor
-} from "reactotron-react-js";
+  openInEditor
+} from "reactotron-react-native";
 import { log } from "../Lib";
 
 Reactotron.clear();
 
 
+const host = NativeModules.SourceCode.scriptURL.split('://')[1].split(':')[0];
 
-Reactotron.configure() // controls connection & communication settings
+
+Reactotron.configure({
+  host, // controls connection & communication settings
+}) 
   .use(
     trackGlobalErrors({
-      veto: frame => frame.fileName.indexOf("/node_modules/react-native/") >= 0,
-      offline: true
+      veto: frame => frame.fileName.indexOf("/node_modules/react-native/") >= 0
     })
   )
-  .use(apisaucePlugin({
-    // ignoreContentTypes: /^(image)\/.*$/i   // <--- a way to skip printing the body of some requests (default is any image)
-  }))
-  // .use(openInEditor())
+  .use(asyncStorage())
+  .use(openInEditor())
   .connect(); // let's connect!
 
 
 
+Reactotron.useReactNative({
+  asyncStorage: {
+    ignore: ['secret']
+  },
+  networking: {
+    ignoreUrls: /symbolicate/
+  },
+  editor: true,
+  errors: { veto: stackFrame => false },
+  overlay: true
+})
 
 
 // console.tron = Reactotron;
+Reactotron.logImportant("React native async data: ");
 // reactotron.send('asyncStorage.values.change', { preview: `${method}(${arg})`, value: valuesToSend } );
 
 AsyncStorage.getAllKeys(async (err, keys) => {

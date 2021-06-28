@@ -4,9 +4,9 @@
  * File Created: Sunday, 14th July 2019 1:12:15 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Saturday, 7th March 2020 12:12:41 am
+ * Last Modified: Monday, 28th June 2021 9:31:59 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
 
 import React, {createContext, useState, useEffect} from 'react';
@@ -15,10 +15,9 @@ import {
   storageUpdate,
   storageGet,
   is_android,
-  isAndroidEmulator,
   _cloneDeep,
+  storageClear,
 } from '../Lib';
-import AsyncStorage from '@react-native-community/async-storage';
 import {setGlobalLogout, setGlobalUser} from './GlobalService';
 import { IUser } from './Interfaces/AppInterface';
 
@@ -75,7 +74,7 @@ export const AppProvider: React.FC = props => {
 
     setGlobalUser(null);
 
-    AsyncStorage.clear();
+    storageClear();
 
     updateContextLoading(false);
   };

@@ -4,9 +4,9 @@
  * File Created: Friday, 10th January 2020 6:31:46 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 12:24:54 am
+ * Last Modified: Monday, 28th June 2021 9:14:24 pm
  * -----
- * Copyright 2020 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2020 - 2021 WhileGeek, https://umar.tech
  */
 
 import { DropDownAlertHolder } from '../Components/DropDownAlertHolder';
@@ -42,19 +42,23 @@ export const handleCatchError = (e: any, from:string|null = null) => {
  * @param response - API Response
  * @param from - From screen
  */
-export const handleApiError = (response: IApiResponse, from:string|null = null) => {
+export const handleApiError = (response: IApiResponse, from:string|null = null, showAlert = true) => {
   const errorDrop = DropDownAlertHolder.getDropDown();
-  const { data } = response;
+  const { data, status } = response;
 
   let err = 'Something went wrong';
   let err2 = err;
   try {
     err = data.error_description;
+
+    if (status === 401 && from !== "login") {
+      err = "Please Login.";
+    }
   } catch (e) {
     err2 = e.message;
   }
 
   log(`ERROR: ${from || 'API RESPONSE ERROR: '}`, err, err2);
 
-  errorDrop.alertWithType('error', 'Error', err);
+  showAlert && errorDrop.alertWithType('error', 'Error', err);
 }

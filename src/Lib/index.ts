@@ -4,18 +4,21 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Saturday, 14th March 2020 1:20:31 am
+ * Last Modified: Monday, 28th June 2021 10:36:17 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
+ * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
 
 import isEqual from 'lodash/isEqual'
 import sortBy from 'lodash/sortBy'
 import cloneDeep from 'lodash/cloneDeep'
-// import {AsyncStorage} from "@react-native-community/async-storage"
-import { Dimensions, Platform, AsyncStorage, Linking, Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { Dimensions, Platform, Alert } from "react-native";
+import * as Linking from 'expo-linking';
+import * as WebBrowser from 'expo-web-browser';
 import { TStorageKeys } from '../Services/Interfaces/AuthInterface';
 import { Tron } from './tron';
+import { Config } from '../Config';
 // import reactotron from "reactotron-react-native";
 // import DeviceInfo from 'react-native-device-info';
 
@@ -85,8 +88,7 @@ export function isEmpty(str: any) {
  *
  */
 export const log = (...shitPile: any) => {
-  if (__DEV__) {
-    
+  if (__DEV__ && Config.LOG_ENABLED) {
     Tron.log(...shitPile);
     console.log(...shitPile);
   }
@@ -114,9 +116,9 @@ export function openUrl(url = "", inApp = true) {
       if (!supported) {
         log("Can't handle url: " + url);
       } else {
-        // if (inApp) {
-        //   return WebBrowser.openBrowserAsync(url);
-        // }
+        if (inApp) {
+          return WebBrowser.openBrowserAsync(url);
+        }
         return Linking.openURL(url);
       }
     })
@@ -173,7 +175,7 @@ export function showAlert(alertTitle: string = '', alertText: string = '') {
  */
 export function alertCheck(msg?: string) {
   if (!isString(msg) || !msg) {
-    msg = "Alert Check"
+    msg = "Hola, Alert Check"
   }
 
   showAlert(msg)
@@ -325,3 +327,13 @@ export const getInitialsOfName = (name: string): string => {
 
 // Regular expression for validating phone number
 export const PHONE_REG_EXP = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
+/**
+ * K Formatter (Kay - Format) | 3600 => 3.6k
+ * @param num - Number
+ * @returns num 
+ */
+export function kFormatter(num?:string | number) {
+  num = num ? +num : 0;
+  return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
+}

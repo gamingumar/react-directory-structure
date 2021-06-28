@@ -4,9 +4,9 @@
  * File Created: Saturday, 14th December 2019 1:15:15 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 12:40:19 am
+ * Last Modified: Monday, 28th June 2021 9:53:26 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
+ * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
 
 export interface IAppContext {
@@ -20,5 +20,27 @@ export type TStorageKeys = "user" | string;
 
 export interface IUser {
   email:      string;
-  api_token:  string|null;
+  fullName:   string;
+  username:   string;
+  phone:      string;
+  photo:      string;
+}
+
+export interface IResetRequestPayload{
+  email?:string
+  phone?:string
+}
+
+export interface IResetPasswordPayload{
+  code:string,
+  password:string,
+  confirm:string
+  email?:string
+  phone?:string
+ }
+
+ export interface ILoginResponse {
+  ttl: number;
+  user: IUser;
+  accessToken: string;
 }

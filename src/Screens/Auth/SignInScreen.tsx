@@ -4,9 +4,9 @@
  * File Created: Monday, 16th December 2019 11:30:34 pm
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 6th March 2020 11:56:09 pm
+ * Last Modified: Monday, 28th June 2021 10:30:29 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
 
 import React, { useState, useContext, useEffect } from "react";
@@ -20,7 +20,7 @@ import { Images } from "../../Themes/Images";
 import { Colors } from "../../Themes/Colors";
 import { vs, s, ms } from "react-native-size-matters";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { useNavigation } from "react-navigation-hooks";
+import { useNavigation } from '@react-navigation/native';
 import { log, showAlert } from "../../Lib";
 import { Loader } from "../../Components/Loader";
 import { DropDownAlertHolder, DropdownAlertType } from "../../Components/DropDownAlertHolder";

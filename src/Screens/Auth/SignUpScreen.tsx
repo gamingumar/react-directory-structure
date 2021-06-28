@@ -4,9 +4,9 @@
  * File Created: Saturday, 7th March 2020 12:00:58 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Saturday, 7th March 2020 12:12:41 am
+ * Last Modified: Monday, 28th June 2021 10:30:29 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
 
 import React, { useState, useContext, useEffect } from "react";
@@ -17,7 +17,7 @@ import { TextInput, Text, Button, Subheading, Title } from "react-native-paper";
 import { Colors } from "../../Themes/Colors";
 import { vs, s, ms } from "react-native-size-matters";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { useNavigation } from "react-navigation-hooks";
+import { useNavigation } from '@react-navigation/native';
 import { log, showAlert, PHONE_REG_EXP } from "../../Lib";
 import { Loader } from "../../Components/Loader";
 import { DropDownAlertHolder } from "../../Components/DropDownAlertHolder";
@@ -74,11 +74,12 @@ export const SignUpScreen: React.FC = () => {
 
       const { firstName, lastName, email, phone, password } = values;
       const response = await AuthApi.Register(
-        firstName,
-        lastName,
-        email,
-        phone,
-        password,
+        {
+          fullName: firstName + " " + lastName,
+          email,
+          username: '',
+          password,
+        }
       );
 
       let message = "Something went wrong";

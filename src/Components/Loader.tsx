@@ -4,9 +4,9 @@
  * File Created: Saturday, 14th December 2019 2:25:05 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 6th March 2020 11:52:38 pm
+ * Last Modified: Monday, 28th June 2021 9:02:10 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
+ * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
 import React from 'react';
 import {View, ActivityIndicator, ViewStyle, TextStyle} from 'react-native';

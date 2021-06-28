@@ -4,9 +4,9 @@
  * File Created: Thursday, 27th February 2020 1:52:40 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Saturday, 14th March 2020 1:22:53 am
+ * Last Modified: Monday, 28th June 2021 8:58:48 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
 
 import { create } from "apisauce";
@@ -26,6 +26,20 @@ export interface IApiResponse {
   status: number;
   ok: boolean;
   hasError: boolean;
+}
+
+export const apiSuccessResponse:IApiResponse = {
+  data: null,
+  status: 200,
+  ok: true,
+  hasError: false
+}
+
+export const apiErrorResponse:IApiResponse = {
+  data: null,
+  status: 500,
+  ok: false,
+  hasError: true
 }
 
  /**
@@ -58,7 +72,7 @@ export class ApiResponse implements IApiResponse {
  /**
  * APP API Client
  */
-const ApiClient = () => {
+const ApiClient = (isFile = false) => {
 
   log('creating api client...')
   let user = getGlobalUser();
@@ -68,7 +82,7 @@ const ApiClient = () => {
   let api = create({
     baseURL: Config.API_URL,
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": isFile ? "multipart/form-data" : "application/json",
       "Authorization": `bearer ${userToken}`
     },
     timeout: 60000
@@ -103,12 +117,20 @@ export const ApiPost = async (url = "", data = {}):Promise<IApiResponse> => {
   return parseResponse(response);
 };
 
-const _logoutOnError = (errorCode = 0) => {
-  if (Config.LOGOUT_STATUS_LIST.includes(errorCode)) {
-    log(`LOGGING OUT GLOBAL due to ${errorCode} GET 🚪`)
-    logoutGlobal();
-  }
-}
+/**
+ * GU API UPLOAD Request
+ *
+ */
+ export const ApiUploadPost = async (url = "", data = {}) => {
+  log("api upload post: ", url, data);
+
+  const response = await ApiClient(true).post(url, data);
+
+  log("Upload POST Response before parse: ", response);
+
+  return parseResponse(response);
+};
+
 
 /**
  * GU API Get Request
@@ -128,20 +150,6 @@ export const ApiGet = async (url = "", data = {}) => {
   return parseResponse(response);
 };
 
-/**
- * GU API DELETE Request
- *
- */
-export const ApiDelete = async (url = "", data = {}) => {
-  log("api delete: ", url, data);
-
-  const response = await ApiClient().delete(url, data, { data });
-
-  log("DELETE Response before parse: ", response);
-
-  return parseResponse(response);
-};
-
 
 /**
  * GU API PATCH Request
@@ -153,6 +161,41 @@ export const ApiPatch = async (url = "", data = {}) => {
   const response = await ApiClient().patch(url, { ...data });
 
   log("PATCH Response before parse: ", response);
+
+  return parseResponse(response);
+};
+
+/**
+ * GU API PUT Request
+ *
+ */
+ export const ApiPut = async (url = "", data = {}) => {
+  log("api put: ", url, data);
+
+  const response = await ApiClient().put(url, { ...data });
+
+  log("PUT Response before parse: ", response);
+
+  return parseResponse(response);
+};
+
+const _logoutOnError = (errorCode = 0) => {
+  if (Config.LOGOUT_STATUS_LIST.includes(errorCode)) {
+    log(`LOGGING OUT GLOBAL due to ${errorCode} GET 🚪`)
+    logoutGlobal();
+  }
+}
+
+/**
+ * GU API DELETE Request
+ *
+ */
+ export const ApiDelete = async (url = "", data = {}) => {
+  log("api delete: ", url, data);
+
+  const response = await ApiClient().delete(url, data, { data });
+
+  log("DELETE Response before parse: ", response);
 
   return parseResponse(response);
 };

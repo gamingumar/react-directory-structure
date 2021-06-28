@@ -4,11 +4,11 @@
  * File Created: Thursday, 27th February 2020 1:52:40 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 16th March 2020 11:26:55 pm
+ * Last Modified: Monday, 28th June 2021 10:24:54 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
 
 export const Images = {
-  Logo: require("../assets/images/logo/logo.png"),
+  Logo: require("../assets/images/logo.png"),
 }

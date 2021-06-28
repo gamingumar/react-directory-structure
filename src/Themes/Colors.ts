@@ -4,12 +4,14 @@
  * File Created: Thursday, 27th February 2020 1:52:40 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Monday, 16th March 2020 11:26:47 pm
+ * Last Modified: Monday, 28th June 2021 9:53:26 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://umar.tech
+ * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
 
 export const Colors = {
-  white: '#FFFFFF',
+  white: '#F2F5F8',
   grayBG: "#2B2B2B",
+  primaryTint: "#004470",
+  secondaryTint: "#74BAF4",
 }

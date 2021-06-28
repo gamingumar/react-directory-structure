@@ -64,8 +64,14 @@ Follow instructions in:
 
 Find all dependencies in package.json file.
 
+#### Navigation and other Libs:
+
 ```
-yarn add yup formik qs react-native-paper apisauce @react-native-community/masked-view react-navigation-tabs react-native-safe-area-context react-native-vector-icons react-navigation-animated-switch react-native-reanimated react-native-bootsplash lodash @react-native-community/async-storage react-native-device-info react-native-dropdownalert react-native-gesture-handler react-native-keyboard-aware-scroll-view react-native-modal react-native-screens react-native-size-matters react-navigation react-navigation-hooks react-navigation-stack
+yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/bottom-tabs @react-navigation/drawer @react-navigation/material-bottom-tabs @react-navigation/stack
+```
+
+```
+yarn add yup formik qs react-native-paper apisauce react-native-vector-icons lodash @react-native-async-storage/async-storage react-native-dropdownalert react-native-keyboard-aware-scroll-view react-native-modal react-native-size-matters @expo/react-native-action-sheet expo-constants expo-file-system expo-image-manipulator expo-image-picker expo-linking expo-location expo-web-browser expo-network
 
 yarn add -D @types/lodash reactotron-react-native @types/react-native-vector-icons
 

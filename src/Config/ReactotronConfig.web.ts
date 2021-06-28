@@ -4,12 +4,12 @@
  * File Created: Saturday, 14th December 2019 1:11:43 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Friday, 28th February 2020 7:06:14 pm
+ * Last Modified: Monday, 28th June 2021 9:31:59 pm
  * -----
- * Copyright 2019 - 2020 WhileGeek, https://gamingumar.com
+ * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
 
-import {AsyncStorage} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import apisaucePlugin from 'reactotron-apisauce'
 import Reactotron, {
   trackGlobalErrors,
@@ -24,7 +24,8 @@ Reactotron.clear();
 Reactotron.configure() // controls connection & communication settings
   .use(
     trackGlobalErrors({
-      veto: frame => frame.fileName.indexOf("/node_modules/react-native/") >= 0
+      veto: frame => frame.fileName.indexOf("/node_modules/react-native/") >= 0,
+      offline: true
     })
   )
   .use(apisaucePlugin({

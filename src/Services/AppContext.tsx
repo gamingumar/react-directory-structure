@@ -4,7 +4,7 @@
  * File Created: Sunday, 14th July 2019 1:12:15 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Tuesday, 29th June 2021 12:08:11 am
+ * Last Modified: Thursday, 1st July 2021 4:29:26 am
  * -----
  * Copyright 2019 - 2021 WhileGeek, https://umar.tech
  */
@@ -24,14 +24,14 @@ import { IUser } from './Interfaces/AppInterface';
 
 interface IAppContext {
   logout: Function;
-  logoutIfTimeout: Function;
+  // logoutIfTimeout: Function;
   user: IUser | null;
   updateUser(newUser: IUser | null): void;
 }
 
 export const AppContext = createContext<IAppContext>({
   logout: () => {},
-  logoutIfTimeout: () => {},
+  // logoutIfTimeout: () => {},
   user: null,
   updateUser: (newUser: IUser | null) => null
 });
@@ -92,9 +92,6 @@ export const AppProvider: React.FC = props => {
         updateUser,
 
         logout,
-
-        contextLoading,
-        updateContextLoading,
       }}>
       {props.children}
     </AppContext.Provider>

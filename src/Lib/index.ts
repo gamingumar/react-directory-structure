@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Tuesday, 29th June 2021 12:08:12 am
+ * Last Modified: Thursday, 1st July 2021 2:07:15 am
  * -----
  * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
@@ -287,7 +287,7 @@ export const isValidTimestamp = (timestamp: string | number) => (new Date(timest
 
 
 /**
- * GU Lib - Parse total amount to standard 3 decimal places
+ * GU Lib - Parse total amount to standard 2 decimal places
  * 
  * @param amount - Amount to Parse
  * @param afterDecimalPlaced - Number of digits after decimal
@@ -299,7 +299,7 @@ export const parseAmount = (amount: string | number, afterDecimalPlaced = 2) => 
   try {
     let newAmount: number | string = Number(amount).toFixed(afterDecimalPlaced);
 
-    return Number(newAmount);
+    return newAmount;
 
   } catch (e) {
     return amount;

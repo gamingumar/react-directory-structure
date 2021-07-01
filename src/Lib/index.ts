@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Thursday, 1st July 2021 5:38:16 am
+ * Last Modified: Thursday, 1st July 2021 5:57:51 am
  * -----
  * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
@@ -16,7 +16,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage"
 import { Dimensions, Platform, Alert } from "react-native";
 import * as Linking from 'expo-linking';
 import * as WebBrowser from 'expo-web-browser';
-import { TStorageKeys } from '../Services/Interfaces/AuthInterface';
+import { TStorageKeys } from '../Services/Interfaces/AppInterface';
 import { Tron } from './tron';
 import { Config } from '../Config';
 // import reactotron from "reactotron-react-native";
@@ -40,7 +40,7 @@ export function compareArrays(array1 = [], array2 = []) {
  * GU Lib - Deeply clone object or any data
  * @param data - Anything
  */
- export function _cloneDeep<T>(data: T): T {
+export function _cloneDeep<T>(data: T): T {
   return cloneDeep(data);
 }
 
@@ -88,7 +88,7 @@ export function isEmpty(str: any) {
  *
  */
 export const log = (...shitPile: any) => {
-  if (__DEV__ && Config.LOG_ENABLED) {
+  if (__DEV__) {
     Tron.log(...shitPile);
     console.log(...shitPile);
   }
@@ -287,27 +287,6 @@ export const isValidTimestamp = (timestamp: string | number) => (new Date(timest
 
 
 /**
- * GU Lib - Parse total amount to standard 2 decimal places
- * 
- * @param amount - Amount to Parse
- * @param afterDecimalPlaced - Number of digits after decimal
- */
-export const parseAmount = (amount: string | number, afterDecimalPlaced = 2) => {
-
-  // log('======> GOT TO PARSE: ', amount)
-
-  try {
-    let newAmount: number | string = Number(amount).toFixed(afterDecimalPlaced);
-
-    return newAmount;
-
-  } catch (e) {
-    return amount;
-  }
-}
-
-
-/**
  * GU Lib - Get Initials of full name
  * @param name Name
  */
@@ -327,6 +306,27 @@ export const getInitialsOfName = (name: string): string => {
 
 // Regular expression for validating phone number
 export const PHONE_REG_EXP = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
+
+/**
+ * GU Lib - Parse total amount to standard 2 decimal places
+ * 
+ * @param amount - Amount to Parse
+ * @param afterDecimalPlaced - Number of digits after decimal
+ */
+ export const parseAmount = (amount: string | number, afterDecimalPlaced = 2) => {
+
+  // log('======> GOT TO PARSE: ', amount)
+
+  try {
+    let newAmount: number | string = Number(amount).toFixed(afterDecimalPlaced);
+
+    return newAmount;
+
+  } catch (e) {
+    return amount;
+  }
+}
 
 /**
  * K Formatter (Kay - Format) | 3600 => 3.6k

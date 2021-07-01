@@ -4,7 +4,7 @@
  * File Created: Saturday, 14th December 2019 1:23:17 am
  * Author: Umar Aamer (umaraamer@gmail.com)
  * -----
- * Last Modified: Thursday, 1st July 2021 2:07:15 am
+ * Last Modified: Thursday, 1st July 2021 5:38:16 am
  * -----
  * Copyright 2019 - 2021 WhileGeek, https://gamingumar.com
  */
@@ -40,7 +40,7 @@ export function compareArrays(array1 = [], array2 = []) {
  * GU Lib - Deeply clone object or any data
  * @param data - Anything
  */
-export function _cloneDeep(data: any) {
+ export function _cloneDeep<T>(data: T): T {
   return cloneDeep(data);
 }
 

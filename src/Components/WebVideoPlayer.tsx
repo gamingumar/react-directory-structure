@@ -1,13 +1,13 @@
  
  ​/* 
  ​ * File: WebVideoPlayer.tsx 
- ​ * Project: THE NEW FLAT RATE 
+ ​ * Project: React Directory Structure
  ​ * File Created: Thursday, 8th August 2019 6:44:24 pm 
  ​ * Author: Umar Aamer (umaraamer@gmail.com) 
  ​ * ----- 
  ​ * Last Modified: Wednesday, 4th March 2020 2:38:51 am 
  ​ * ----- 
- ​ * Copyright 2019 - 2019 WhileGeek, https://umar.tech 
+ ​ * Copyright 2019 - 2021 WhileGeek, https://umar.tech 
  ​ */ 
  ​import​ ​React​,​ ​{​useEffect​,​ ​useState​}​ ​from​ ​'react'​; 
  ​import​ ​{​View​}​ ​from​ ​'react-native'​; 
